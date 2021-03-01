@@ -1,7 +1,7 @@
 import Cocoa
 
-extension ReversedCollection where Base: BidirectionalCollection {
-    @inlinable func prefixMap<T>(_ transform: (Base.Element) throws -> T?) rethrows -> [T] {
+extension Collection {
+    @inlinable func prefixMap<T>(_ transform: (Self.Element) throws -> T?) rethrows -> [T] {
         var result = [T]()
         for element in self {
             if let transformedElement = try transform(element) {
